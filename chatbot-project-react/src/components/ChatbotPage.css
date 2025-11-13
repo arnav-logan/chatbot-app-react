@@ -1,0 +1,8 @@
+.chatbot-page {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    background: repeating-linear-gradient(135deg,
+            var(--secondary-color) 0 40px,
+            var(--secondary-highlight-color) 40px 80px);
+}
