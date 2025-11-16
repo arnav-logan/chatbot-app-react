@@ -24,6 +24,18 @@ export const Navbar = () => {
         >
           About
         </Link>
+        <Link
+          to="/login"
+          className={location.pathname === "/login" ? "active" : ""}
+        >
+          Login
+        </Link>
+        <Link
+          to="/signup"
+          className={location.pathname === "/signup" ? "active" : ""}
+        >
+          Sign Up
+        </Link>
       </div>
     </div>
   );

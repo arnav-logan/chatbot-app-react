@@ -6,6 +6,9 @@ import { HomePage } from "./components/HomePage";
 import { Navbar } from "./components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { SessionContext } from "./contexts/sessionContext";
+import  LoginPage  from "./components/LoginPage";
+import  SignupPage  from "./components/SignupPage";
+
 
 function App() {
   const queryClient = new QueryClient();
@@ -21,6 +24,8 @@ function App() {
               <Route path="/chatbot" element={<ChatbotPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/details" element={<div>Details Page</div>} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
               <Route path="*" element={<h1>404 Not Found</h1>} />
             </Routes>
           </div>

@@ -1,0 +1,69 @@
+/* Centers the entire page content */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 70px); /* subtract navbar height */
+  padding: 20px;
+}
+
+/* The centered mobile-style form box */
+.form-card {
+  background: rgba(255, 255, 255, 0.1);
+
+  /* NEW: balanced spacing on left + right sides */
+  padding: 25px 40px;
+
+  border-radius: 12px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+
+/* Titles */
+.login-title,
+.signup-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Input fields */
+.input-box {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  background: #333;
+  color: white;
+  font-size: 14px;
+}
+
+/* Button */
+.button-primary {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #0D8C9F;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+.button-primary:hover {
+  opacity: 0.9;
+}
+
+.error-text {
+  color: #ff4d4d;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
