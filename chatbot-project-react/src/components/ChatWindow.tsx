@@ -2,7 +2,8 @@ import { useContext, useEffect, useRef, useState } from "react";
 import ChatInput from "./ChatInput";
 import { Avatar, List, Skeleton } from "antd";
 import "./ChatWindow.css";
-import viteLogo from "/vite.svg";
+//import viteLogo from "/vite.svg";
+import MCLogo from "../assets/MC-logo.png";
 import { fetchChatbotChatResponse } from "../hooks/requests";
 import { ExclamationCircleOutlined, UserOutlined } from "@ant-design/icons";
 import {
@@ -49,7 +50,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ }) => {
                           }}
                         />
                       ) : (
-                        viteLogo
+                        MCLogo
                       )
                     }
                   />
@@ -95,10 +96,10 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ }) => {
             message: message,
             session_id: sessionId,
           })
-            .then((response) => {
+            .then((response: any) => {
               setMessages((prevMessages) => [
                 ...prevMessages.slice(0, -1),
-                { content: response.message, type: "ai", status: "success" },
+                { content: response['message'].at(-1)['a'], type: "ai", status: "success" },
               ]);
             })
             .catch((error) => {

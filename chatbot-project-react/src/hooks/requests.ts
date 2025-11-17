@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
   headers: { "Content-Type": "application/json" },
   timeout: import.meta.env.VITE_BASE_API_TIMEOUT
     ? parseInt(import.meta.env.VITE_BASE_API_TIMEOUT)
-    : 5000,
+    : 50000,
 });
 
 export const fetchChatbotChatResponse = async (

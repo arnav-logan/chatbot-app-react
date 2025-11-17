@@ -1,4 +1,5 @@
-import { Button, ConfigProvider, Input, Space, type InputRef } from "antd";
+import { Button, ConfigProvider, Input, Space, Dropdown, message, type InputRef } from "antd";
+import type { MenuProps } from 'antd';
 import TextArea from "antd/es/input/TextArea";
 import { useEffect, useRef, useState } from "react";
 
@@ -28,6 +29,27 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage }) => {
             chatInputTextRef.current.focus();
         }
     }, [isReadyForInput]);
+
+    const onClick: MenuProps['onClick'] = ({ key }) => {
+        if (isReadyForInput) {
+            setInputValue(key);
+        }
+    };
+
+    const items: MenuProps['items'] = [
+        {
+            label: 'What is Minecraft?',
+            key: 'What is Minecraft?',
+        },
+        {
+            label: 'What is the main story of Minecraft?',
+            key: 'What is the main story of Minecraft?',
+        },
+        {
+            label: 'Who created Minecraft?',
+            key: 'Who created Minecraft?',
+        },
+    ];
 
     return (
         <ConfigProvider
@@ -59,6 +81,11 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage }) => {
                     />
                     <Button style={{ height: '5vh' }} autoFocus={true} type="primary" onClick={handleSend} disabled={!isReadyForInput || !inputValue.trim()}>Send</Button>
                 </Space.Compact>
+            </div>
+            <div>
+                <Dropdown menu={{ items, onClick }}>
+                    Or, select a question from list
+                </Dropdown>
             </div>
         </ConfigProvider>
     );

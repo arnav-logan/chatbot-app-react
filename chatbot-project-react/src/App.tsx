@@ -6,8 +6,8 @@ import { HomePage } from "./components/HomePage";
 import { Navbar } from "./components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { SessionContext } from "./contexts/sessionContext";
-import  LoginPage  from "./components/LoginPage";
-import  SignupPage  from "./components/SignupPage";
+import LoginPage from "./components/LoginPage";
+import SignupPage from "./components/SignupPage";
 
 
 function App() {

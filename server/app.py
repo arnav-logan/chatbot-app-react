@@ -1,10 +1,14 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from google import genai
+from google.genai import types
 import os
-#from dotenv import load_dotenv
+
+CORS_ORIGINS = ["http://localhost:5173"]
 
 app = Flask(__name__)
 messages = []
+CORS(app, origins=CORS_ORIGINS)
 
 # Gemini Configuration
 client = genai.Client()
@@ -12,7 +16,10 @@ client = genai.Client()
 def get_gemini_response(message):
    try:
        response = client.models.generate_content(
-            model="gemini-2.5-flash", contents=message
+            model="gemini-2.5-flash", 
+            config=types.GenerateContentConfig(
+                system_instruction="You are Minecraft AI, a helpful assistant that provides short responses (less than 200 words) focusing on knowledge of the video game Minecraft"), 
+                contents=message
        )
        return response.text
    except Exception as e:
@@ -39,7 +46,7 @@ def chat():
                app.logger.error(f"Error in chat route: {str(e)}")
                return jsonify({"error": "Error occured with request", "errorType": str(e)}), 400
            
-           return jsonify({"Message": messages}), 200
+           return jsonify({"message": messages}), 200
     
    return jsonify({"error": "Error getting AI response"}), 400
 
